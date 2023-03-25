@@ -8,7 +8,25 @@ const catImageUrl = "https://i.guim.co.uk/img/media/26392d05302e02f7bf4eb143bb84
 
 const Home = () => {
 
-   
+    const navigation = useNavigation();
+
+    useEffect(() => {
+        navigation.setOptions({
+            headerLeft: () => (
+                <FontAwesome name="search" size={24} color={colors.gray} style={{marginLeft: 15}}/>
+            ),
+            headerRight: () => (
+                <Image
+                    source={{ uri: catImageUrl }}
+                    style={{
+                        width: 40,
+                        height: 40,
+                        marginRight: 15,
+                    }}
+                />
+            ),
+        });
+    }, [navigation]);
 
     return (
         <View style={styles.container}>
